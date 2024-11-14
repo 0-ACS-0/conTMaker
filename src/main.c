@@ -1,7 +1,5 @@
 #include "conTMaker.h"
 
-void printTitle();
-
 int main(int argc, char ** argv)
 {
     conTMaker_t testT = contmakerInit();
@@ -10,14 +8,6 @@ int main(int argc, char ** argv)
     testT->setDescription("Esta es la descripcion de la herramienta que se mostrara. Abajo estan enumeradas las opciones\ny todas sus descripciones.");
     testT->setPrompt("contmaker@prompt(h for help) > ");
 
-    testT->addOption("tits", "Muestra el titulo, sin mas.", printTitle);
-
     testT->loop();
     return 0;
-}
-
-void printTitle()
-{
-    extern conTMaker_t __contmaker;
-    printf("Titulo: %s\n", __contmaker->getTitle());
 }

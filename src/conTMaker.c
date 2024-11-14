@@ -11,6 +11,7 @@ static void contmakerShowPrompt(void);
 static void contmakerWaitInput(void);
 
 static void contmakerCmd(void);
+static void contmakerClearScreen(void);
 static void contmakerShowHelp(void);
 static void contmakerQuit(void);
 
@@ -200,16 +201,17 @@ static const char * contmakerGetPrompt(void)
 static void contmakerLoop(void)
 {
     // Reserved commands:
+    __contmaker->addOption("clear", "Limpia la consola.", contmakerClearScreen);
     __contmaker->addOption("h", "Muestra la ayuda de la herramienta.", contmakerShowHelp);
     __contmaker->addOption("q", "Sale de la aplicacion.", contmakerQuit);
 
     while(1)
     {
-        printf("\n");
         contmakerShowPrompt();
         contmakerWaitInput();
 
         contmakerCmd();
+        printf("\n");
     }
 
 }
@@ -341,6 +343,15 @@ static void contmakerCmd(void)
     {
         printf("No existe el comando introducido!\n");
     }
+}
+
+/*
+
+*/
+static void contmakerClearScreen(void)
+{
+    // Execute "clear" command.
+    system("cls");
 }
 
 /*
