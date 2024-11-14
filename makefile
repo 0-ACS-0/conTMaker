@@ -1,0 +1,2 @@
+SRCD = src/
+INCD = inc/
