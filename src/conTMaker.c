@@ -336,6 +336,11 @@ static void contmakerCmd(void)
             return;
         }
     }
+
+    if(strcmp(__contmaker->_input, "\0"))
+    {
+        printf("No existe el comando introducido!\n");
+    }
 }
 
 /*
